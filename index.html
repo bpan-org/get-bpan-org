@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# <html> <head> <meta http-equiv="content-type" content="text/html; charset=utf-8" /> <title>get.bpan.org</title> </head> <body> <h2>BPAN Quick Installer</h2> <pre> curl get.bpan.org | bash </pre> <hr/> <pre><code code="bash">
+# <html> <head> <meta http-equiv="content-type" content="text/html; charset=utf-8" /> <title>get.bpan.org</title> <style> pre { background-color: #eee; padding: 5px 5px; } </style> </head> <body> <h2>BPAN Quick Installer</h2> <p>Install <a href="https://bpan.org">BPAN</a> with this simple command: </p> <pre> curl get.bpan.org | bash </pre> <p>The following shells are supported:</p> <ol> <li>ash</li> <li>bash</li> <li>dash</li> <li>fish</li> <li>ksh</li> <li>mksh</li> <li>mrsh</li> <li>posh</li> <li>sh</li> <li>tcsh</li> <li>yash</li> <li>zsh</li> </ol> <p>It will run the following <a href="https://github.com/bpan-org/bpan/blob/main/share/install">BPAN installation program</a>: </p> <hr/> <pre><code code="bash">
 #!/usr/bin/env bash
 
 
@@ -147,13 +147,13 @@ sleep 1
 
 case "$BPAN_SHELL" in
   ash | dash | ksh | mksh | posh | sh)
-    cmd="BPAN_ROOT='$BPAN_ROOT' . $BPAN_ROOT/.rc" ;;
+    cmd="BPAN_ROOT='$BPAN_ROOT' . '$BPAN_ROOT/.rc'" ;;
   mrsh)
-    cmd="BPAN_ROOT='$BPAN_ROOT'; . $BPAN_ROOT/.rc" ;;
+    cmd="BPAN_ROOT='$BPAN_ROOT'; . '$BPAN_ROOT/.rc'" ;;
   bash | fish | tcsh | zsh)
-    cmd="source $BPAN_ROOT/.rc" ;;
+    cmd="source '$BPAN_ROOT/.rc'" ;;
   yash)
-    cmd=". $BPAN_ROOT/.rc 2>/dev/null" ;;
+    cmd=". '$BPAN_ROOT/.rc' 2>/dev/null" ;;
   *)
     error "*** Unexpected error ***" ;;
 esac
